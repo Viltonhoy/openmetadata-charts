@@ -4,31 +4,31 @@
 
 # MySQL configurations for helm dependency
 # you can find more details about this here https://artifacthub.io/packages/helm/bitnami/mysql
-# mysql:
-#   enabled: true
-#   fullnameOverride: "mysql"
-#   architecture: standalone
-#   image:
-#     pullPolicy: "Always"
-#   auth:
-#     rootPassword: password    # to be provided by CI/CD
-#   primary:
-#     extraFlags: "--sort_buffer_size=10M"
-#     persistence:
-#       size: 50Gi
-#     service:
-#       nodePort: 3306
-#   initdbScripts:
-#     init_openmetadata_db_scripts.sql: |
-#       CREATE DATABASE openmetadata_db;
-#       CREATE USER 'openmetadata_user'@'%' IDENTIFIED BY 'openmetadata_password';
-#       GRANT ALL PRIVILEGES ON openmetadata_db.* TO 'openmetadata_user'@'%' WITH GRANT OPTION;
-#       commit;
-#     init_airflow_db_scripts.sql: |
-#       CREATE DATABASE airflow_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-#       CREATE USER 'airflow_user'@'%' IDENTIFIED BY 'airflow_pass';
-#       GRANT ALL PRIVILEGES ON airflow_db.* TO 'airflow_user'@'%' WITH GRANT OPTION;
-#       commit;
+mysql:
+  enabled: false
+  fullnameOverride: "mysql"
+  architecture: standalone
+  image:
+    pullPolicy: "Always"
+  auth:
+    rootPassword: password    # to be provided by CI/CD
+  primary:
+    extraFlags: "--sort_buffer_size=10M"
+    persistence:
+      size: 50Gi
+    service:
+      nodePort: 3306
+  initdbScripts:
+    init_openmetadata_db_scripts.sql: |
+      CREATE DATABASE openmetadata_db;
+      CREATE USER 'openmetadata_user'@'%' IDENTIFIED BY 'openmetadata_password';
+      GRANT ALL PRIVILEGES ON openmetadata_db.* TO 'openmetadata_user'@'%' WITH GRANT OPTION;
+      commit;
+    init_airflow_db_scripts.sql: |
+      CREATE DATABASE airflow_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+      CREATE USER 'airflow_user'@'%' IDENTIFIED BY 'airflow_pass';
+      GRANT ALL PRIVILEGES ON airflow_db.* TO 'airflow_user'@'%' WITH GRANT OPTION;
+      commit;
 
 # ElasticSearch configurations for helm dependency
 # you can find more details about this here https://artifacthub.io/packages/helm/elastic/elasticsearch
