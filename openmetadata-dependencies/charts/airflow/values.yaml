@@ -77,7 +77,7 @@ airflow:
       firstName: admin
       lastName: admin
 
-  secretjopa: admin
+  airflowsecret: admin  
 
   ## bash-like templates to be used in `airflow.users`
   ## - [WARNING] if a Secret or ConfigMap is missing, the sync Pod will crash
