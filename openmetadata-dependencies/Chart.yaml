@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: 1.1.4
 dependencies:
 - condition: postgresql-operator.enabled
-  name: postgres
+  name: omd-postgres-cluster
   repository: file://postgresql
   version: 13.7.0
 - condition: opensearch.enabled
