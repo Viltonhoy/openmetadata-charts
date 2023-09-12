@@ -1,0 +1,31 @@
+apiVersion: acid.zalan.do/v1
+kind: postgresql
+metadata:
+  name: omd-postgres-cluster
+spec:
+  databases:
+    openmetadata_db: openmetadata_user
+    airflow_db: airflow_user
+  enableExporter: true
+  numberOfInstances: 2
+  postgresql:
+    parameters:
+      log_directory: /var/log/pg_log
+    version: "13"
+  resources:
+    limits:
+      cpu: "1"
+      memory: 2Gi
+    requests:
+      cpu: 600m
+      memory: 800Mi
+  teamId: omd
+  users:
+    openmetadata_user:
+      - superuser
+      - createdb
+    airflow_user:
+      - superuser
+      - createdb  
+  volume:
+    size: 1Gi
