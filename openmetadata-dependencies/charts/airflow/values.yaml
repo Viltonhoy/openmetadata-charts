@@ -77,6 +77,8 @@ airflow:
       firstName: admin
       lastName: admin
 
+  secretjopa: admin
+
   ## bash-like templates to be used in `airflow.users`
   ## - [WARNING] if a Secret or ConfigMap is missing, the sync Pod will crash
   ## - [WARNING] all keys must match the regex: ^[a-zA-Z_][a-zA-Z0-9_]*$
