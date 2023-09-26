@@ -124,13 +124,13 @@ airflow:
     persistence:
       enabled: true
       # NOTE: "" means cluster-default
-      storageClass: ""
+      storageClass: "ceph-datamart"
       size: 1Gi
       accessMode: ReadWriteMany
   logs:
     persistence:
       enabled: true
       # empty string means cluster-default
-      storageClass: ""
+      storageClass: "ceph-datamart"
       accessMode: ReadWriteMany
       size: 1Gi
